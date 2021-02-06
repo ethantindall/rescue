@@ -9,8 +9,9 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Echegaray
 {
-    class DeskQuote
+    public class DeskQuote
     {
+
         //this is used to create the JSON FILE 
         public string currentDate { get; set; }
         public string customerInfo { get; set; }
@@ -22,39 +23,45 @@ namespace MegaDesk_Echegaray
         public string shippingTotal { get; set; }
         public string totalDesk { get; set; }
 
-        static public List<DeskQuote> dqList = new List<DeskQuote>();
-        Desk Desk = new Desk();
 
+
+        // This is the List assigned to the Grid /////
+        static public List<DeskQuote> dqList = new List<DeskQuote>();
+
+
+        // Populating the Grid /////
         static public void GetQueryList()
         {
             try
             {
                 string json = File.ReadAllText("myobjects.json", System.Text.Encoding.UTF8);
                 dqList = JsonConvert.DeserializeObject<List<DeskQuote>>(json);
+                Console.WriteLine(dqList[0].customerInfo);
             }
-            catch(FileNotFoundException e)
+            catch (FileNotFoundException e)
             {
-                Console.WriteLine("No preexisting file.");
+                MessageBox.Show("No file found");
             }
         }
-        public DeskQuote()
-        {
 
-        }
-        
-        public DeskQuote(string currentDate, string customerInfo, string areaTotal, string drawerTotal, string materialSelected, string materialTotal, 
-            string shippingSelected, string shippingTotal, string totalDesk)
-        {
-            this.currentDate = currentDate;
-            this.customerInfo = customerInfo;
-            this.areaTotal = areaTotal;
-            this.drawerTotal = drawerTotal;
-            this.materialSelected = materialSelected;
-            this.materialTotal = materialTotal;
-            this.shippingSelected = shippingSelected;
-            this.shippingTotal = shippingTotal;
-            this.totalDesk = totalDesk;
-        }
+
+        // Diego's Code /////
+        //public List<DeskQuote>  GetQueryList() 
+        //{
+        //    string json = File.ReadAllText("quotes.json", System.Text.Encoding.UTF8);
+
+
+        /////////////////////////////////////////////
+
+        //    return quoteList;
+        //}
+
+
+        /////////////////////////////////////////////
+
+
+
+
 
         // Area Calculation 
         public int areaCalc(int width, int depth)
@@ -122,22 +129,22 @@ namespace MegaDesk_Echegaray
             switch (shippingDays)
             {
                 case "3":
-                    if (areaDesk < 1000) return 60;
-                    if (areaDesk >= 1000 && areaDesk <= 2000) return 70;
-                    if (areaDesk > 2000) return 80;
-                    return 0;
+                    if (areaDesk < 1000) { return rushPrices[0]; }
+                    else if (areaDesk >= 1000 && areaDesk <= 2000) { return rushPrices[1]; }
+                    else if (areaDesk > 2000) { return rushPrices[2]; }
+                    else { return 0; }
 
                 case "5":
-                    if (areaDesk < 1000) return 40;
-                    if (areaDesk >= 1000 && areaDesk <= 2000) return 50;
-                    if (areaDesk > 2000) return 60;
-                    return 0;
+                    if (areaDesk < 1000) { return rushPrices[3]; }
+                    else if (areaDesk >= 1000 && areaDesk <= 2000) { return rushPrices[4]; }
+                    else if (areaDesk > 2000) { return rushPrices[5]; }
+                    else { return 0; }
 
                 case "7":
-                    if (areaDesk < 1000) return 30;
-                    if (areaDesk >= 1000 && areaDesk <= 2000) return 35;
-                    if (areaDesk > 2000) return 40;
-                    return 0;
+                    if (areaDesk < 1000) { return rushPrices[6]; }
+                    else if (areaDesk >= 1000 && areaDesk <= 2000) { return rushPrices[7]; }
+                    else if (areaDesk > 2000) { return rushPrices[8]; }
+                    else { return 0; }
 
                 case "14":
                     return 0;

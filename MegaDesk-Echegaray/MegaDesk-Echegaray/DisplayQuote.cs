@@ -16,31 +16,15 @@ namespace MegaDesk_Echegaray
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote(string jsonData)
-        {
-            InitializeComponent();
-
-            Console.WriteLine(jsonData);
-            DeskQuote viewQuote = JsonConvert.DeserializeObject<DeskQuote>(jsonData);
-            Console.WriteLine(viewQuote.currentDate);
-            quoteDate.Text = viewQuote.currentDate;
-            custName.Text = viewQuote.customerInfo;
-            areaCost.Text = viewQuote.areaTotal;
-            drawerCost.Text = viewQuote.drawerTotal;
-            materialName.Text = viewQuote.materialSelected;
-            materialCost.Text = viewQuote.materialTotal;
-            shippingMethod.Text = viewQuote.shippingSelected;
-            shippingCost.Text = viewQuote.shippingTotal;
-            totalCost.Text = viewQuote.totalDesk;
-
-        }
+        DeskQuote DeskQuote = new DeskQuote();
+        
         AddQuote addQuote = new AddQuote();
-
+        
+      
         public string date { get; set; }
         public string clientName { get; set; }
 
-        
-        /*
+
         public DisplayQuote(string currentDateInfo, string customerInfo, string areaTotal, string drawerTotal, string materialSelected, string materialTotal, string shippingSelected, string shippingTotal, string totalDesk)
         {
             InitializeComponent();
@@ -70,29 +54,29 @@ namespace MegaDesk_Echegaray
             DeskQuoteInfo.shippingTotal = shippingTotal;
             DeskQuoteInfo.totalDesk = totalDesk;
 
-            try
-            {
+            //try
+            //{
 
-                string jsonData = JsonConvert.SerializeObject(DeskQuoteInfo, Formatting.Indented);
-                string path = @"C:\Users\Gianna\source\repos\CIT365-MegaDesk-Team\MegaDesk-Echegaray\MegaDesk-Echegaray\quotes.json";
+            //    string jsonData = JsonConvert.SerializeObject(DeskQuoteInfo, Formatting.Indented);
+            //    string path = "quotes.json";
 
-                if (jsonData != null && jsonData != "")
-                {
-                    File.AppendAllText(path, jsonData + Environment.NewLine);
-                }
-                else
-                {
-                    File.WriteAllText(path, jsonData);
-                }
+            //    if (jsonData != null && jsonData != "")
+            //    {
+            //        File.AppendAllText(path, jsonData + Environment.NewLine);
+            //    }
+            //    else
+            //    {
+            //        File.WriteAllText(path, jsonData);
+            //    }
 
-            }
-            catch (IOException e)
-            {
+            //}
+            //catch (IOException e)
+            //{
 
-            }
+            //}
 
         }
-        */
+
 
         private void backBtn_Click(object sender, EventArgs e)
         {
