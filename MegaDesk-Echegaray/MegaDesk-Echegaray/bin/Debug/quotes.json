@@ -1,0 +1,44 @@
+{
+  "currentDate": "05 February 2021",
+  "customerInfo": "Ethan",
+  "areaTotal": "1225",
+  "drawerTotal": "0",
+  "materialSelected": "Oak",
+  "materialTotal": "200",
+  "shippingSelected": "5",
+  "shippingTotal": "60",
+  "totalDesk": "1485"
+}
+{
+  "currentDate": "05 February 2021",
+  "customerInfo": "ethan",
+  "areaTotal": "1225",
+  "drawerTotal": "0",
+  "materialSelected": "Pine",
+  "materialTotal": "50",
+  "shippingSelected": "3",
+  "shippingTotal": "80",
+  "totalDesk": "1355"
+}
+{
+  "currentDate": "05 February 2021",
+  "customerInfo": "45",
+  "areaTotal": "1225",
+  "drawerTotal": "0",
+  "materialSelected": "Pine",
+  "materialTotal": "50",
+  "shippingSelected": "14",
+  "shippingTotal": "0",
+  "totalDesk": "1275"
+}
+{
+  "currentDate": "05 February 2021",
+  "customerInfo": "45",
+  "areaTotal": "1225",
+  "drawerTotal": "0",
+  "materialSelected": "Pine",
+  "materialTotal": "50",
+  "shippingSelected": "7",
+  "shippingTotal": "40",
+  "totalDesk": "1315"
+}
